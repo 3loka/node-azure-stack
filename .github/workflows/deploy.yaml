@@ -47,6 +47,6 @@ jobs:
             appName: ${{ secrets.AZURE_APP_NAME }}
         id: url
         run: |
-          echo "::set-output name=azure_url::http://${{ env.appName }}.azurewebsites.net"
+          echo "::set-output name=azure_url::https://${{env.appName}}.azurewebsites.net"
 
    
