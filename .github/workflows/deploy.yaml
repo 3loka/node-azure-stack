@@ -47,8 +47,6 @@ jobs:
             appName: ${{ secrets.AZURE_APP_NAME }}
         id: url
         run: |
-            # azure app name need not be a secret, if its a secret there is no way to print in the logs.
-            #echo "::set-output name=azure_url::https://${{env.appName}}.azurewebsites.net"
             echo "::set-output name=azure_url::https://nodejs-sstack.azurewebsites.net"
 
    
