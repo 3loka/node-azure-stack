@@ -9,7 +9,7 @@ jobs:
     name: "Deploy nodejs app to Azure"
     environment:
        name: production
-       url: ${{ steps.url.azure_url }}
+       url: 'http://nodejs-stack.azurewebsites.net'
     
     steps:
       - uses: actions/checkout@v2
