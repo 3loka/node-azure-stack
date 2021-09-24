@@ -43,7 +43,7 @@ configs:
   - environments:                                        
     - name: production
       parameters:
-        protected-branches: true
+        protected-branches: false
 
 init:
 - uses: ".github/workflows/stack-init.yaml"
