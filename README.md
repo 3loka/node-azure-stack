@@ -1,10 +1,5 @@
-<a href="https://github.com/new?stack=ghstack-expressjs-azure-appservice"><img src="./.github/stacks/use-this-stack.svg"/></a>
-
-[![GitHub stars](https://img.shields.io/github/stars/github/fetch.svg?style=social&label=Star)](https://github.com/github/fetch) 
-<a href="https://discord.gg/phoenix24"><img src="https://img.shields.io/badge/chat-discord-brightgreen.svg?logo=discord&style=flat"></a>
-<a href="https://twitter.com/intent/follow?screen_name=phoenix24"><img src="https://img.shields.io/badge/Follow-phoenix24-blue.svg?style=flat&logo=twitter"></a>
-<a href="https://eepurl.com/phoenix24"><img src="https://img.shields.io/badge/newsletter-subscribe-yellow.svg?style=flat"></a>
-
+[![Use this template](https://github.com/stack-instance/badge.svg)](https://github.com/stack-instance?stack_template_owner=3loka&stack_template_repo=nodejs-azureapp-stack)
+                  
 
  <p>
     <img src="https://avatars.githubusercontent.com/u/6844498?s=200&v=4" height="20">
