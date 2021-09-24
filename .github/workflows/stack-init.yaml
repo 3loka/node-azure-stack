@@ -56,9 +56,9 @@
             publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
             package: .
           
-      - name: Get URL
-        env:
-            appName: ${{ secrets.AZURE_APP_NAME }}
-        id: url
-        run: |
-          echo "::set-output name=azure_url::'http://${{ env.appName }}.azurewebsites.net'"
+        - name: Get URL
+          env:
+              appName: ${{ secrets.AZURE_APP_NAME }}
+          id: url
+          run: |
+            echo "::set-output name=azure_url::'http://${{ env.appName }}.azurewebsites.net'"
