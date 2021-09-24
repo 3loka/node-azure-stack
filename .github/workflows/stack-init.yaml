@@ -61,4 +61,4 @@
               appName: ${{ secrets.AZURE_APP_NAME }}
           id: url
           run: |
-            echo "::set-output name=azure_url::https://nodejs-sstack.azurewebsites.net"
+            echo "::set-output name=azure_url::http://nodejs-sstack.azurewebsites.net"
