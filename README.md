@@ -35,9 +35,6 @@ The stack also sets up a proper Github CI/CD environment by taing care of the fo
 #### Github apps installed with this stack
 ```None```
 
-#### Version summary
-```expressjs version (4.17.1)```
-
 ## How to setup local development server?
 ```
 # to start a local development environment, and view in browser.
@@ -55,10 +52,10 @@ npm build
 ## Learn more 
 
 ### ExpressJS
-Visit [expressjs.com](https://expressjs.com) to view the full documentation.
+Visit [Expressjs.com](https://expressjs.com) to view the full documentation.
 
 ### Azure Cloud
-Learn more about [azure](https://docs.microsoft.com/en-us/azure) from the official site.
+Learn more about [Azure](https://docs.microsoft.com/en-us/azure) from the official site.
 
 
 ## Other Useful links

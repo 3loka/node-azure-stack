@@ -26,14 +26,3 @@ jobs:
       - name: install dependencies
         if: steps.check_files.outputs.files_exists == 'true'
         run: npm install
-
-      - name: run build
-        if: steps.check_files.outputs.files_exists == 'true'
-        run: npm run build
-
-      - name: run tests
-        if: steps.check_files.outputs.files_exists == 'true'
-        run: npm test
-        env:
-          CI: true
-          FORCE_COLOR: 1

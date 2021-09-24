@@ -44,8 +44,6 @@
         - name: npm install, build, and test
           run: |
             npm install
-            npm run build 
-            npm run test
 
         - name: "Deploy to Azure Web App"
           id: deploy-to-webapp
