@@ -1,0 +1,56 @@
+  name: "Setup and deploy a nodejs site to Azure App service"
+
+  on:
+    workflow_dispatch:
+
+  jobs:
+    stack-initialization:
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "Creating and deploying a nodejs site to azure app service"
+        - name: checkout
+          uses: actions/checkout@v2
+          with:
+            persist-credentials: false
+        
+        - name: use node.js v14 
+          uses: actions/setup-node@v1
+          with:
+            node-version: '14'
+            check-latest: true
+            registry-url: https://registry.npmjs.org/
+
+        - name: Stacks framework code generation
+          run: |
+            npx express-generator expressjs-scaffold
+            cp -r expressjs-scaffold/* .
+            rm -rf expressjs-scaffold
+            
+        - name: Configure git
+          run: |
+            git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+            git config --global user.name "${{ github.actor }}"
+            git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+            
+        - name: Commit generated code and initialize workflows
+          run: |
+            git add .
+            git commit -m "Generate framework code and initialize workflows"
+            git push 
+            # We cant push to main since its protected in this stack
+
+        ### These steps ideally should be done in a deploy workflow, and referenced here
+        
+        - name: npm install, build, and test
+          run: |
+            npm install
+            npm run build 
+            npm run test
+
+      - name: "Deploy to Azure Web App"
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ secrets.AZURE_APP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: .

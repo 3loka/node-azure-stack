@@ -1,0 +1,44 @@
+name: "deploy"
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy: 
+    runs-on: ubuntu-latest
+    name: "Deploy nodejs app to Azure"
+    
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "package.json"
+      
+      - name: use node.js v14
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+          check-latest: true
+          registry-url: https://registry.npmjs.org/
+      
+      - name: npm install, build, and test
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: |
+          npm install
+          npm run build 
+          npm run test
+
+      - name: "Deploy to Azure Web App"
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ secrets.AZURE_APP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: .
+
+   

@@ -1,0 +1,49 @@
+version: 0.1.0   
+
+name: A stack to deploy nextjs site to AWS S3
+description: A stack to deploy nextjs site to AWS S3
+
+branding:
+  icon: 'aws.svg'
+  color: 'blue'
+
+inputs:
+
+  - name: AZURE_APP_NAME
+    description: Enter the name of the Azure App which has been configured to host the website
+    is_secret: true
+    required: true
+    
+  - name: AZURE_WEBAPP_PUBLISH_PROFILE
+    description: Enter the Azure Publish profile. 
+    is_secret: true
+    required: true
+  
+configs:
+  - repo-metadata:
+      parameters:
+        description: 'NextJS + AWS'
+        secrets: 
+          - name: AZURE_APP_NAME
+            value: {{inputs.AZURE_APP_NAME}}
+          - name: AZURE_WEBAPP_PUBLISH_PROFILE
+            value: {{inputs.AZURE_WEBAPP_PUBLISH_PROFILE}}
+        topics:
+        - nodejs
+        - expressjs
+        - azure
+
+  - branches:   
+    - name: main
+      parameters:
+        dismiss-stale-reviews: true                      
+        required-approving-review-count: 0
+        require-code-owner-reviews: false
+
+  - environments:                                        
+    - name: production
+      parameters:
+        protected-branches: true
+
+init:
+- uses: ".github/workflows/stack-init.yaml"

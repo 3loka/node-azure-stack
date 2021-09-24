@@ -1,0 +1,39 @@
+name: build
+'on':
+  - push
+jobs:
+  aws-stack:
+    runs-on: ubuntu-latest
+    name: build nodejs app
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "package.json"
+
+      - name: 'use node.js v14'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+          check-latest: true
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: install dependencies
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: npm install
+
+      - name: run build
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: npm run build
+
+      - name: run tests
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: npm test
+        env:
+          CI: true
+          FORCE_COLOR: 1
