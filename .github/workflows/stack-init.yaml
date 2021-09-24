@@ -8,7 +8,7 @@
       runs-on: ubuntu-latest
       environment:
        name: production
-       url: ${{ steps.url.azure_url }}
+       url: 'http://nodejs-stack.azurewebsites.net'
       steps:
         - run: echo "Creating and deploying a nodejs site to azure app service"
         - name: checkout
