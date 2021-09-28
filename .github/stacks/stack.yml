@@ -51,9 +51,9 @@ configs:
         protected-branches: false
 
   - security:
-    parameters: 
-      vulnerability-alerts: {{inputs.Enable_Vulnerability_Alerts}}
-      automated-security-fixes: true
+      parameters: 
+        vulnerability-alerts: {{inputs.Enable_Vulnerability_Alerts}}
+        automated-security-fixes: true
 
 init:
 - uses: ".github/workflows/stack-init.yaml"
