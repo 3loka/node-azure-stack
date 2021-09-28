@@ -52,7 +52,7 @@ configs:
 
   - security:
       parameters: 
-        vulnerability-alerts: {{inputs.Enable_Vulnerability_Alerts}}
+        vulnerability-alerts: ${{inputs.Enable_Vulnerability_Alerts}}
         automated-security-fixes: true
 
 init:
