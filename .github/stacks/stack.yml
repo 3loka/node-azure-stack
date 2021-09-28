@@ -18,12 +18,7 @@ inputs:
     description: Enter the Azure Publish profile. 
     is_secret: true
     required: true
-  
-  - name: Enable_Vulnerability_Alerts
-    description: Enter whether code owner reviews are required for main branch. 
-    is_secret: false
-    required: true
-  
+
 configs:
   - repo-metadata:
       parameters:
@@ -49,11 +44,6 @@ configs:
     - name: production
       parameters:
         protected-branches: false
-
-  - security:
-      parameters: 
-        vulnerability-alerts: ${{inputs.Enable_Vulnerability_Alerts}}
-        automated-security-fixes: true
 
 init:
 - uses: ".github/workflows/stack-init.yaml"
