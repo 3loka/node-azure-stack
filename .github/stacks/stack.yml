@@ -43,12 +43,12 @@ configs:
       parameters:
         dismiss-stale-reviews: true                      
         required-approving-review-count: 0
-        require-code-owner-reviews: false
+        require-code-owner-reviews: ${{inputs.REQUIRE_CODE_OWNER_REVIEW}}
 
   - environments:                                        
     - name: production
       parameters:
-        protected-branches: ${{inputs.REQUIRE_CODE_OWNER_REVIEW}}
+        protected-branches: false
 
 init:
 - uses: ".github/workflows/stack-init.yaml"
