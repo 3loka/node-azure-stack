@@ -19,7 +19,7 @@ inputs:
     is_secret: true
     required: true
   
-  - name: REQUIRE_CODE_OWNER_REVIEW
+  - name: Enable_Vulnerability_Alerts
     description: Enter whether code owner reviews are required for main branch. 
     is_secret: false
     required: true
@@ -43,12 +43,17 @@ configs:
       parameters:
         dismiss-stale-reviews: true                      
         required-approving-review-count: 0
-        require-code-owner-reviews: ${{inputs.REQUIRE_CODE_OWNER_REVIEW}}
+        require-code-owner-reviews: false
 
   - environments:                                        
     - name: production
       parameters:
         protected-branches: false
+
+  - security:
+    parameters: 
+      vulnerability-alerts: {{inputs.Enable_Vulnerability_Alerts}}
+      automated-security-fixes: true
 
 init:
 - uses: ".github/workflows/stack-init.yaml"
