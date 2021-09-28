@@ -19,6 +19,11 @@ inputs:
     is_secret: true
     required: true
   
+  - name: REQUIRE_CODE_OWNER_REVIEW
+    description: Enter whether code owner reviews are required for main branch. 
+    is_secret: false
+    required: true
+  
 configs:
   - repo-metadata:
       parameters:
@@ -43,7 +48,7 @@ configs:
   - environments:                                        
     - name: production
       parameters:
-        protected-branches: false
+        protected-branches: ${{inputs.REQUIRE_CODE_OWNER_REVIEW}}
 
 init:
 - uses: ".github/workflows/stack-init.yaml"
