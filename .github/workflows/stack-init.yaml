@@ -10,12 +10,7 @@
        name: production
        url: 'http://nodejs-stack.azurewebsites.net'
       steps:
-        - run: echo "Creating and deploying a nodejs site to azure app service"
-        - name: Sleep for 30 seconds
-          uses: jakejarvis/wait-action@master
-          with:
-           time: '30s'
-           
+        - run: echo "Creating and deploying a nodejs site to azure app service"       
         - name: checkout
           uses: actions/checkout@v2
           with:
