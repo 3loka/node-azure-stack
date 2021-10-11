@@ -11,16 +11,16 @@ inputs:
 
   - name: AZURE_APP_NAME
     description: Enter the name of the Azure App which has been configured to host the website
-    is_secret: true
+    is-secret: true
     required: true
     
   - name: AZURE_WEBAPP_PUBLISH_PROFILE
     description: Enter the Azure Publish profile. 
-    is_secret: true
+    is-secret: true
     required: true
 
 configs:
-  - repo-metadata:
+   repo-metadata:
       parameters:
         description: 'A Nodejs website deployed in Azure App Service'
         secrets: 
@@ -33,17 +33,17 @@ configs:
         - expressjs
         - azure
 
-  - branches:   
+   branches:   
     - name: main
       parameters:
         dismiss-stale-reviews: true                      
         required-approving-review-count: 0
         require-code-owner-reviews: false
 
-  - environments:                                        
+   environments:                                        
     - name: production
       parameters:
         protected-branches: false
 
 init:
-- uses: ".github/workflows/stack-init.yaml"
+ uses: ".github/workflows/stack-init.yaml"
