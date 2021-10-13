@@ -47,6 +47,7 @@ configs:
         custom-branch-policies:
           - qa/*
           - releases/*
+        wait-timer: 1
 
 init:
  uses: ".github/workflows/stack-init.yaml"
