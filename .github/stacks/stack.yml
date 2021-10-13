@@ -43,6 +43,10 @@ configs:
    environments:                                        
     - name: development
       parameters: 
+        protected-branches: false
+        custom-branch-policies:
+          - qa/*
+          - releases/*
 
 init:
  uses: ".github/workflows/stack-init.yaml"
