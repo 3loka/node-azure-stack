@@ -8,7 +8,7 @@
       runs-on: ubuntu-latest
       environment:
        name: development
-       url: 'http://nodejs-stack.azurewebsites.net'
+       url: 'https://node-stack.azurewebsites.net'
       steps:
         - run: echo "Creating and deploying a nodejs site to azure app service"       
         - name: checkout
