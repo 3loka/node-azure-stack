@@ -45,7 +45,7 @@ configs:
       parameters: 
         protected-branches: false
         custom-branch-policies:
-          - qa/*
+          - main/*
           - releases/*
         wait-timer: 1
 
