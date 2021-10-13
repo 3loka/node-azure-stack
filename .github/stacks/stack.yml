@@ -41,7 +41,7 @@ configs:
         require-code-owner-reviews: false
 
    environments:                                        
-    - name: production
+    - name: development
       parameters: 
         protected-branches: false
         custom-branch-policies:
