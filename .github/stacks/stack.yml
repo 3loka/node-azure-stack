@@ -45,7 +45,7 @@ configs:
       parameters: 
         protected-branches: false
         custom-branch-policies:
-          - main/*
+          - test/*
           - releases/*
 
 init:
