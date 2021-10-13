@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     name: "Deploy nodejs app to Azure"
     environment:
-       name: production
+       name: development
        url: 'http://nodejs-stack.azurewebsites.net'
     
     steps:
