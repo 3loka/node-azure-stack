@@ -9,7 +9,7 @@ jobs:
     name: "Deploy nodejs app to Azure"
     environment:
        name: development
-       url: 'http://node-stack.azurewebsites.net'
+       url: 'https://node-stack.azurewebsites.net'
     
     steps:
       - uses: actions/checkout@v2
