@@ -40,13 +40,13 @@ configs:
         required-approving-review-count: 0
         require-code-owner-reviews: false
 
-   environments:                                        
-    - name: development
-      parameters: 
-        protected-branches: false
-        custom-branch-policies:
-          - main
-          - releases/*
+#    environments:                                        
+#     - name: development
+#       parameters: 
+#         protected-branches: false
+#         custom-branch-policies:
+#           - main
+#           - releases/*
 
 init:
  uses: ".github/workflows/stack-init.yaml"
