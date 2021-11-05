@@ -44,9 +44,9 @@ configs:
     - name: development
       parameters: 
         protected-branches: false
-        custom-branch-policies:
+        allowed-branch-rules:
           - main
           - releases/*
 
 init:
- uses: ".github/workflows/stack-init.yaml"
+ uses: "stack-init.yaml"
