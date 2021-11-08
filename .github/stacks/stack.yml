@@ -5,7 +5,7 @@ description: A stack to deploy nodejs app to Azure
 
 branding:
   icon: 'cloud'
-  color: 'blue'
+  color: 'red'
 
 inputs:
 
@@ -36,10 +36,8 @@ configs:
    branches:   
     - name: main
       parameters:
-        required-pull-request-reviews:
-          dismiss-stale-reviews: true                      
-          required-approving-review-count: 0
-          require-code-owner-reviews: false
+        enforce-admins: true
+        
 
    environments:                                        
     - name: development
