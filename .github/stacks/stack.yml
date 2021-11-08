@@ -36,9 +36,10 @@ configs:
    branches:   
     - name: main
       parameters:
-        dismiss-stale-reviews: true                      
-        required-approving-review-count: 0
-        require-code-owner-reviews: false
+      required-pull-request-reviews:
+          dismiss-stale-reviews: true                      
+          required-approving-review-count: 0
+          require-code-owner-reviews: false
 
    environments:                                        
     - name: development
