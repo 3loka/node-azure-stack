@@ -1,5 +1,5 @@
-[![Use this template](https://github.com/stack-instance/badge.svg)](https://github.com/stack-instance?stack_template_owner=3loka&stack_template_repo=nodejs-azureapp-stack)
-                  
+[![Use this template](https://github.com/stack-instance/badge.svg)](https://github.com/stack-instance?stack_template_owner=3loka&stack_template_repo=nodejs-azureapp-rel-stack)
+                                  
 
  <p>
     <img src="https://avatars.githubusercontent.com/u/6844498?s=200&v=4" height="20">
