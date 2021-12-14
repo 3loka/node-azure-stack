@@ -32,9 +32,6 @@ configs:
         - nodejs
         - expressjs
         - azure
-
-   branches:   
-    - name: main
         
    environments:                                        
     - name: development
