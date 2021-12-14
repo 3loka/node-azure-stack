@@ -18,6 +18,8 @@ The stack also sets up a proper Github CI/CD environment by taing care of the fo
 3. Enable Security alerts - A workflow will be setup for you to enable Dependabot alerts to detect vulnerabilities.
 4. CodeQL Security Analysis - Discover vulnerabilities across a codebase with CodeQL, our industry-leading semantic code analysis engine
 
+Note: Once you create a repo out of this stack, you can find your website deployed at <azure_app_name>.azurewebsites.net.
+
 ## What are the inputs to pass while setting up the stack?
 ```
 # Name of the Azure App which has been configured to host the website
