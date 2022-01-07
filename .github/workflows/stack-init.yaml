@@ -1,14 +1,17 @@
   name: "Setup and deploy a nodejs site to Azure App service"
 
   on:
-    workflow_dispatch:
+   workflow_dispatch:
+    inputs:
+      AZURE_APP_NAME:
+        required: true
 
   jobs:
     stack-initialization:
       runs-on: ubuntu-latest
-#       environment:
-#        name: development
-#        url: 'https://node-stack.azurewebsites.net'
+      environment:
+         name: development
+         url: ${{ steps.get-url.outputs.your_site }}
       steps:
         - run: echo "Creating and deploying a nodejs site to azure app service"       
         - name: checkout
@@ -42,7 +45,7 @@
             git push 
             # We cant push to main since its protected in this stack
 
-        ### These steps ideally should be done in a deploy workflow, and referenced here
+        ### TODO - These steps ideally should be done in a deploy workflow, and referenced here
         
         - name: npm install, build, and test
           run: |
@@ -52,13 +55,31 @@
           id: deploy-to-webapp
           uses: azure/webapps-deploy@v2
           with:
-            app-name: ${{ secrets.AZURE_APP_NAME }}
+            app-name: ${{ github.event.inputs.AZURE_APP_NAME }}
             publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
             package: .
           
-#         - name: Get URL
-#           env:
-#               appName: ${{ secrets.AZURE_APP_NAME }}
-#           id: url
-#           run: |
-#             echo "::set-output name=azure_url::http://nodejs-sstack.azurewebsites.net"
+        - name: Website URL
+          run: |
+            echo "Website URL: https://${{ github.event.inputs.AZURE_APP_NAME }}.azurewebsites.net"
+
+        - name: Wait for website to come online
+          env:
+              AZURE_APP_NAME: ${{ github.event.inputs.AZURE_APP_NAME }}
+          timeout-minutes: 5 
+          id: get-url
+          run: |
+            echo "Waiting for the website to come alive..."
+            URL="https://${{ env.AZURE_APP_NAME }}.azurewebsites.net"
+            sleep 20
+            STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}\n" $URL)
+            echo "STATUSCODE: $STATUS_CODE"
+            while [ $STATUS_CODE -ne 200 ]
+            do
+              sleep 10
+              STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}\n" $URL)
+            echo "STATUSCODE: $STATUS_CODE"
+            done
+            echo "Website is up and running..."
+            echo "Browse here: $URL"       
+            echo "::set-output name=your_site::$URL"
