@@ -40,7 +40,7 @@
             
         - name: Commit generated code and initialize workflows
           run: |
-            appName = "${{ github.event.inputs.AZURE_APP_NAME }}"
+            appName="${{ github.event.inputs.AZURE_APP_NAME }}"
             echo "$appName" > appname 
             git add .
             git commit -m "Generate framework code and initialize workflows"
