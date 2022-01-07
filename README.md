@@ -32,6 +32,20 @@ Note: Once you create a repo out of this stack, you can find your website deploy
 #### Github apps installed with this stack
 ```None```
 
+## How to get AZURE_WEBAPP_PUBLISH_PROFILE? 🔑
+```
+Login to your Azure Portal -> Open the Azure App Service -> Get publish profile
+```
+Check [this](https://docs.microsoft.com/en-us/visualstudio/azure/how-to-get-publish-profile-from-azure-app-service?view=vs-2022) out for more details on getting Publish Profile.
+
+## App hosted URL would be: ✈️
+
+You can readily find the URL where your repo hosts the application in the `Development` environment. Or manually you can find your website deployed at <azure_app_name>.azurewebsites.net. 
+```
+Example: APP_NAME input by user is: sample-app
+Hosted URL: https://sample-app.azurewebsites.net 
+```
+
 ## How to setup local development server?
 ```
 # to start a local development environment, and view in browser.
