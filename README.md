@@ -38,6 +38,7 @@ Login to your Azure Portal -> Open the Azure App Service -> Get publish profile
 ```
 Check [this](https://docs.microsoft.com/en-us/visualstudio/azure/how-to-get-publish-profile-from-azure-app-service?view=vs-2022) out for more details on getting Publish Profile.
 
+**Note**: You will have to create a Web app in your Azure Subscription and pass its name and publish profile as input. This stack will deploy the new repo code to your Azure Web app. Checkout this [Azure Documentation](https://docs.microsoft.com/en-us/azure/app-service/) to learn more about creating Azure App Service
 ## App hosted URL would be: ✈️
 
 You can readily find the URL where your repo hosts the application in the `Development` environment. Or manually you can find your website deployed at <azure_app_name>.azurewebsites.net. 
