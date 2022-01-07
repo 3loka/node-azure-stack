@@ -9,7 +9,7 @@ jobs:
     name: "Deploy nodejs app to Azure"
     environment:
        name: development
-       url: 'https://node-stack.azurewebsites.net'
+       url: ${{ steps.get-url.outputs.your_site }}
     
     steps:
       - uses: actions/checkout@v2
@@ -33,20 +33,41 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'true'
         run: |
           npm install
+          
+      - name: Read app name from file
+        id: getAppName
+        run: echo "::set-output name=appName::$(cat appname)"
 
       - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ secrets.AZURE_APP_NAME }}
+          app-name: ${{ steps.getAppName.outputs.appName }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: .
-          
-      - name: Get URL
-        env:
-            appName: ${{ secrets.AZURE_APP_NAME }}
-        id: url
+
+      - name: Website URL
         run: |
-            echo "::set-output name=azure_url::http://nodejs-sstack.azurewebsites.net"
+          echo "Website URL: https://${{ steps.getAppName.outputs.appName }}.azurewebsites.net"
+      - name: Wait for website to come online
+        env:
+            AZURE_APP_NAME: ${{ steps.getAppName.outputs.appName }}
+        timeout-minutes: 5 
+        id: get-url
+        run: |
+          echo "Waiting for the website to come alive..."
+          URL="https://${{ env.AZURE_APP_NAME }}.azurewebsites.net"
+          sleep 20
+          STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}\n" $URL)
+          echo "STATUSCODE: $STATUS_CODE"
+          while [ $STATUS_CODE -ne 200 ]
+          do
+            sleep 10
+            STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}\n" $URL)
+          echo "STATUSCODE: $STATUS_CODE"
+          done
+          echo "Website is up and running..."
+          echo "Browse here: $URL"       
+          echo "::set-output name=your_site::$URL"
 
    
