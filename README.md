@@ -3,7 +3,7 @@
 
  <p>
     <img src="https://avatars.githubusercontent.com/u/6844498?s=200&v=4" height="20">
-    <b>A GitHub Stack</b> to develop, preview, and deploy a Express(Node.js) website to Azure App service in seconds.
+    <b>A GitHub Stack</b> to develop, preview, and deploy an Express(Node.js) website to Azure App service in seconds.
   
 </p>
 
