@@ -1,7 +1,7 @@
 version: 0.1.0   
 
-name: A stack to deploy nodejs app to Azure
-description: A stack to deploy nodejs app to Azure
+name: A GitHub stack to deploy an Express(Node.js) website to Azure App service
+description: A GitHub Stack to develop, preview, and deploy an Express(Node.js) website to Azure App service in seconds.
 
 branding:
   icon: 'cloud'
@@ -10,12 +10,12 @@ branding:
 inputs:
 
   - name: AZURE_APP_NAME
-    description: Enter the name of the Azure App which has been configured to host the website
+    description: Enter the name of the Azure App Service
     is-secret: false
     required: true
     
   - name: AZURE_WEBAPP_PUBLISH_PROFILE
-    description: Enter the Azure Publish profile. 
+    description: Enter the Azure App Service Publish profile
     is-secret: true
     required: true
 
