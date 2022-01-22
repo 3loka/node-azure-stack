@@ -3,14 +3,13 @@
 
  <p>
     <img src="https://avatars.githubusercontent.com/u/6844498?s=200&v=4" height="20">
-    <b>Use this stack</b> to spin up a static website and deploy to azure in seconds.
+    <b>A GitHub Stack</b> to develop, preview, and deploy an Express(Node.js) website to Azure App service in seconds.
+  
 </p>
 
 
-## Why should you use this stack?
-You can spin up your own Expressjs(NodeJS) website in seconds. 
-
-Deployment happens on Azure Cloud via a Azure App Service.
+## Why should you use this GitHub Stack?
+You can spin up your own Express(Node.js) website in seconds. Deployment happens on an Azure App Service.
 
 The stack also sets up a proper Github CI/CD environment by taing care of the following things
 1. Branch Naming convention - You can use any branch prefixed with "dev" as your development environment. 
