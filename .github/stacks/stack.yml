@@ -9,7 +9,7 @@ branding:
 
 inputs:
 
-  - name: App Service Name
+  - name: AZURE_APP_SERVICE_NAME
     description: Enter the name of the Azure App Service
     is-secret: false
     required: true
