@@ -9,23 +9,15 @@ branding:
 
 inputs:
 
-  - name: AZURE_APP_NAME
+  - name: App Service Name
     description: Enter the name of the Azure App Service
     is-secret: false
     required: true
-    
-  - name: AZURE_WEBAPP_PUBLISH_PROFILE
-    description: Enter the Azure App Service Publish profile
-    is-secret: true
-    required: true
-
+  
 configs:
    repo-metadata:
       parameters:
         description: 'A Nodejs website deployed in Azure App Service'
-        secrets: 
-          - name: AZURE_WEBAPP_PUBLISH_PROFILE
-            value: ${{inputs.AZURE_WEBAPP_PUBLISH_PROFILE}}
         topics:
         - nodejs
         - expressjs
