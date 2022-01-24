@@ -31,5 +31,8 @@ configs:
           - main
           - releases/*
 
+github-apps:
+- slug: azure
+
 init:
  uses: "stack-init.yaml"
