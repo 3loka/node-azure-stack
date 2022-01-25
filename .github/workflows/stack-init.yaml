@@ -86,7 +86,7 @@ jobs:
         id: deploy-to-webapp
         uses: Azure/webapps-deploy@v2
         with: 
-          app-name: ${{ github.event.inputs.AZURE_APP_NAME }}
+          app-name: ${{ github.event.inputs.AZURE_APP_SERVICE_NAME }}
           package: .
 
       - name: Website URL
