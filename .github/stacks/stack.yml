@@ -32,7 +32,7 @@ configs:
           - releases/*
 
 github-apps:
-- slug: azure
+- slug: azure-oidc
 
 init:
  uses: "stack-init.yaml"
