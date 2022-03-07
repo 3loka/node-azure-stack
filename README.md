@@ -1,4 +1,4 @@
-[![Use this template](https://github.com/stack-instance/badge.svg)](https://github.com/stack-instance?stack_template_owner=3loka&stack_template_repo=nodejs-azureapp-rel-stack)
+[![Use this template](https://github.com/stack-instance/badge.svg)](https://github.com/stack-instance?stack_template_owner=3loka&stack_template_repo=node-azure-stack)
                                   
 
  <p>
