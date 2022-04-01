@@ -32,7 +32,7 @@ configs:
           - releases/*
 
 github-apps:
-- slug: azure-oidc
+- slug: azure-oidc-uat
   parameters:
     environment: development
 
